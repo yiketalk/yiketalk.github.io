@@ -10,9 +10,9 @@
     <!-- 由于 已经 实现了 base 跟index的合并 我们只需要导入 index.css即可 -->
     <!--<link rel="stylesheet" href="css/base.css" />-->
     <link rel="stylesheet" type="text/css" href="css/index.css" />
-    
-    <!-- 导入 js文件 -->
-    <script src="js/index.js" type="text/javascript" charset="utf-8"></script>
+    <!-- 导入 swiper的 css -->
+    <link rel="stylesheet" type="text/css" href="css/swiper.css" />
+
   </head>
 
   <body>
@@ -26,38 +26,32 @@
       </div>
 
       <!-- 京东的 轮播图 -->
-      <div class="jd_banner">
+      <div class="jd_banner swiper-container">
         <!-- 轮播图 -->
-        <ul class="banner_imgs clearfix">
-          <li>
-            <a href="#"><img src="images/l8.jpg" alt="" /></a>
-          </li>
-          <li>
+        <ul class="banner_imgs clearfix swiper-wrapper">
+          <li class='swiper-slide'>
             <a href="#"><img src="images/l1.jpg" alt="" /></a>
           </li>
-          <li>
+          <li class='swiper-slide'>
             <a href="#"><img src="images/l2.jpg" alt="" /></a>
           </li>
-          <li>
+          <li class='swiper-slide'>
             <a href="#"><img src="images/l3.jpg" alt="" /></a>
           </li>
-          <li>
+          <li class='swiper-slide'>
             <a href="#"><img src="images/l4.jpg" alt="" /></a>
           </li>
-          <li>
+          <li class='swiper-slide'>
             <a href="#"><img src="images/l5.jpg" alt="" /></a>
           </li>
-          <li>
+          <li class='swiper-slide'>
             <a href="#"><img src="images/l6.jpg" alt="" /></a>
           </li>
-          <li>
+          <li class='swiper-slide'>
             <a href="#"><img src="images/l7.jpg" alt="" /></a>
           </li>
-          <li>
+          <li class='swiper-slide'>
             <a href="#"><img src="images/l8.jpg" alt="" /></a>
-          </li>
-          <li>
-            <a href="#"><img src="images/l1.jpg" alt="" /></a>
           </li>
         </ul>
         <!-- 索引 -->
@@ -167,15 +161,15 @@
                 <a href="#">
                   <img src="images/detail02.jpg" alt="" />
                 </a>
-                 <p>¥10.00</p>
-                  <p>¥100.00</p>
+                <p>¥10.00</p>
+                <p>¥100.00</p>
               </li>
               <li class="f_l">
                 <a href="#">
                   <img src="images/detail01.jpg" alt="" />
                 </a>
-                  <p>¥10.00</p>
-                  <p>¥100.00</p>
+                <p>¥10.00</p>
+                <p>¥100.00</p>
               </li>
             </ul>
 
@@ -184,40 +178,53 @@
         </div>
         <!-- 除了 秒杀区域的 之外的 区域 -->
         <div class="main_section">
-        	<!-- 顶部 -->
+          <!-- 顶部 -->
           <div class="section_top">
-          	<span class="f_l">京东超市</span>
+            <span class="f_l">京东超市</span>
           </div>
           <!-- 底部 -->
           <div class="section_bottom clearfix">
-          	<!--a[href="#"]*3>img[src="images/cp$.jpg"]-->
-          	<a href="#" class="f_l b_r"><img src="images/cp1.jpg" alt="" /></a>
-          	<a href="#" class="f_r b_b"><img src="images/cp2.jpg" alt="" /></a>
-          	<a href="#" class="f_r"><img src="images/cp3.jpg" alt="" /></a>
+            <!--a[href="#"]*3>img[src="images/cp$.jpg"]-->
+            <a href="#" class="f_l b_r"><img src="images/cp1.jpg" alt="" /></a>
+            <a href="#" class="f_r b_b"><img src="images/cp2.jpg" alt="" /></a>
+            <a href="#" class="f_r"><img src="images/cp3.jpg" alt="" /></a>
           </div>
         </div>
         <div class="main_section">
           <div class="section_top">
-          	<span class="f_l">京东超市</span>
+            <span class="f_l">京东超市</span>
           </div>
           <div class="section_bottom clearfix">
-          	<a href="#" class="f_r b_l"><img src="images/cp4.jpg" alt="" /></a>
-          	<a href="#" class="f_l b_b"><img src="images/cp5.jpg" alt="" /></a>
-          	<a href="#" class="f_l"><img src="images/cp6.jpg" alt="" /></a>
+            <a href="#" class="f_r b_l"><img src="images/cp4.jpg" alt="" /></a>
+            <a href="#" class="f_l b_b"><img src="images/cp5.jpg" alt="" /></a>
+            <a href="#" class="f_l"><img src="images/cp6.jpg" alt="" /></a>
           </div>
         </div>
         <div class="main_section">
           <div class="section_top">
-          	<span class="f_l">京东超市</span>
+            <span class="f_l">京东超市</span>
           </div>
           <div class="section_bottom clearfix">
-          	 <a href="#" class="f_r b_l"><img src="images/cp1.jpg" alt="" /></a>
-          	<a href="#" class="f_l b_b"><img src="images/cp2.jpg" alt="" /></a>
-          	<a href="#" class="f_l"><img src="images/cp3.jpg" alt="" /></a>
+            <a href="#" class="f_r b_l"><img src="images/cp1.jpg" alt="" /></a>
+            <a href="#" class="f_l b_b"><img src="images/cp2.jpg" alt="" /></a>
+            <a href="#" class="f_l"><img src="images/cp3.jpg" alt="" /></a>
           </div>
         </div>
       </div>
     </div>
   </body>
 
-  </html>
+</html>
+
+<!-- 导入 swiper的js文件 -->
+<script src="js/swiper/swiper.js" type="text/javascript" charset="utf-8"></script>
+
+<!-- 调用 swiper的 js -->
+<script type="text/javascript">
+  var swiper = new Swiper('.swiper-container', {
+    // 无线轮播
+    loop: true,
+    // 自动轮播 
+    autoplay: 2000
+  });
+</script>

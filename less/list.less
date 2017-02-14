@@ -1,0 +1,125 @@
+@import 'base.less'; // 定义变量 为了 方便 使用 京东红
+@jdRed: rgba(209,55,67,1); // 顶部的 通栏
+
+// 为 body 以及 html 设置高度
+html,body{
+    height: 100%;
+}
+// 设置 超出内容 不显示 去掉滚动条 
+body{
+    overflow: hidden;
+}
+
+// 顶部通栏 
+.list_header {
+    height: 45px;
+    border-bottom: 1px solid #ccc;
+    background: linear-gradient(to bottom,white,#ccc);
+    padding: 0 50px;
+    position: relative;
+    // 设置层级
+    z-index: 998; 
+    // 文本框
+    input {
+        width: 100%;
+        height: 35px;
+        border-radius: 4px;
+        margin-top: 5px;
+        border: 1px solid #ccc;
+    }
+    a {
+        position: absolute;
+        top: 0;
+        width: 40px;
+        height: 44px;
+        // 将 内容 压缩为 20px 20px  但是该元素 所占区域 是 40*44
+        // 目的是 为了 让 a标签的 触发区域 足够大  
+        padding: 12px 10px;
+        background-image: url("../images/sprites.png");
+        background-repeat: no-repeat;
+        background-size: 200px 200px;
+        // 设置 从 内容区域开始 
+        background-origin: content-box;
+        //  设置 切除 内容之外的 图片
+        background-clip: content-box;
+    }
+    .back {
+        left: 10px;
+        background-position: -20px 0;
+    }
+    .menu {
+        right: 10px;
+        background-position: -60px 0;
+    }
+}
+
+// 主要内容区域 
+.list_content{
+    position: relative;
+    padding-left: 90px;
+    .content_left{
+        position: absolute;
+        width: 90px;
+        left:0px;
+        top:0px;
+        li{
+            width: 100%;
+            height: 50px;
+            border-bottom: 1px solid black;
+            border-right: 1px solid black;
+            a{
+                display: block;
+                width: 100%;
+                height: 100%;
+                text-align: center;
+                line-height: 50px;
+                color:black;
+                font-size:14px;
+            }
+         
+        }
+        li.current{
+          border-right: none;
+          a{
+              color:@jdRed;
+          }
+        }
+    }
+    .content_right{
+        padding: 10px;
+        // 设置 顶部的 广告效果
+        a{
+            display: block;
+            width: 100%;
+            img{
+                display: block;
+                width: 100%;
+            }
+        } 
+        h5{
+            margin-top: 10px;
+        }
+        // 设置 ul及子元素的 样式
+        ul{
+            padding-top: 10px;
+            li{
+                width: 33.33333%;
+                a{
+                    width: 100%;
+                    display: block;
+                    img{
+                        width: 60%;
+                        display: block;
+                        margin: 0 auto;
+                    }
+                    p{
+                        text-align: center;
+                        font-size:13px;
+                        color:black;
+                        margin: 5px 0;
+                    }
+                }
+            }
+        } 
+    }
+}

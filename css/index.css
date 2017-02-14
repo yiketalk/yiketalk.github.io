@@ -1,0 +1,276 @@
+/* 导入 base.less */
+*,
+::before,
+::after {
+  margin: 0;
+  padding: 0;
+  /* 标准的样式写法 */
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  /* 点击高亮 */
+  -webkit-tap-highlight-color: transparent;
+}
+ol,
+ul {
+  list-style: none;
+}
+a {
+  text-decoration: none;
+}
+/*  */
+input {
+  border: none;
+  /* 轮廓线 */
+  outline: none;
+  /* 有一部分 移动端浏览器 会默认的 为 input 这个标签 添加一些 3d渲染效果  高光 3d渐变 */
+  -webkit-appearance: none;
+}
+/* 左右浮动 */
+.f_r {
+  float: right;
+}
+.f_l {
+  float: left;
+}
+.clearfix::before,
+.clearfix::after {
+  content: '';
+  display: block;
+  clear: both;
+  visibility: hidden;
+  line-height: 0;
+  height: 0;
+}
+.clearfix {
+  zoom: 1;
+}
+.b_t {
+  border-top: 1px solid gray;
+}
+.b_b {
+  border-bottom: 1px solid gray;
+}
+.b_l {
+  border-left: 1px solid gray;
+}
+.b_r {
+  border-right: 1px solid gray;
+}
+/* index.less */
+body {
+  min-width: 320px;
+  max-width: 640px ;
+  margin: 0 auto;
+}
+.jd_header {
+  height: 40px;
+  background-color: #d13743;
+  padding: 0 60px;
+  position: fixed;
+  left: 0px;
+  width: 100%;
+  min-width: 320px ;
+  z-index: 998;
+}
+.jd_header input {
+  width: 100%;
+  height: 30px;
+  border-radius: 15px;
+  margin-top: 5px;
+  padding-left: 40px;
+}
+.jd_header a {
+  position: absolute;
+  color: white;
+  line-height: 40px;
+  top: 0;
+}
+.jd_header .login {
+  right: 10px;
+}
+.jd_header .logo {
+  left: 2px;
+  background-image: url(../images/sprites.png);
+  background-size: 200px 200px;
+  background-position: 0 -103px;
+  width: 60px;
+  height: 36px;
+}
+.jd_header .glass {
+  background-image: url(../images/sprites.png);
+  background-size: 200px 200px;
+  background-position: -60px -109px;
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  top: 10px;
+  left: 70px;
+}
+.jd_banner {
+  overflow: hidden;
+  position: relative;
+}
+.jd_banner .banner_imgs {
+  width: 1000%;
+  transform: translateX(-10%);
+}
+.jd_banner .banner_imgs li {
+  float: left;
+  width: 10%;
+}
+.jd_banner .banner_imgs li a {
+  display: block;
+  width: 100%;
+}
+.jd_banner .banner_imgs li a img {
+  display: block;
+  width: 100%;
+}
+.jd_banner .banner_index {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.jd_banner .banner_index li {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  border: 1px solid white;
+  margin: 0 3px;
+}
+.jd_banner .banner_index li.current {
+  background-color: white;
+}
+.jd_nav ul {
+  padding-top: 10px;
+}
+.jd_nav ul li {
+  float: left;
+  width: 25%;
+}
+.jd_nav ul li a {
+  display: block;
+  width: 100%;
+}
+.jd_nav ul li a img {
+  display: block;
+  margin: 0 auto;
+  width: 50%;
+}
+.jd_nav ul li a p {
+  text-align: center;
+  color: gray;
+  font-size: 13px;
+  margin: 5px 0;
+}
+.jd_main {
+  padding: 10px 5px 0;
+  background-color: #f5f5f5;
+}
+.jd_main .main_section {
+  min-height: 100px;
+  background-color: white;
+  margin-bottom: 10px;
+}
+.jd_main .main_section.second_kill .section_top {
+  height: 32px;
+}
+.jd_main .main_section.second_kill .section_top span {
+  line-height: 32px;
+  margin-left: 10px;
+}
+.jd_main .main_section.second_kill .section_top .clock {
+  background-image: url(../images/seckill-icon.png);
+  background-size: 20px 25px;
+  background-repeat: no-repeat;
+  width: 20px;
+  height: 25px;
+  margin-top: 3.5px;
+}
+.jd_main .main_section.second_kill .section_top span:nth-child(2) {
+  color: #d13743;
+}
+.jd_main .main_section.second_kill .section_top ul {
+  padding-top: 6px;
+}
+.jd_main .main_section.second_kill .section_top ul li {
+  background-color: black;
+  color: white;
+  margin: 0 2px;
+  width: 15px;
+  height: 20px;
+  text-align: center;
+  line-height: 20px;
+  font-weight: 700;
+  font-size: 16px;
+}
+.jd_main .main_section.second_kill .section_top ul li:nth-child(3n) {
+  background-color: white;
+  color: black;
+  margin: 0;
+}
+.jd_main .main_section.second_kill .section_top a {
+  line-height: 32px;
+  color: #ccc;
+  margin-right: 10px;
+}
+.jd_main .main_section.second_kill .section_bottom ul li {
+  width: 33.333333%;
+}
+.jd_main .main_section.second_kill .section_bottom ul li a {
+  padding-top: 10px;
+  width: 100%;
+  display: block;
+}
+.jd_main .main_section.second_kill .section_bottom ul li a img {
+  display: block;
+  width: 70%;
+  margin: 0 auto;
+}
+.jd_main .main_section.second_kill .section_bottom ul li p {
+  text-align: center;
+  margin: 5px 0;
+}
+.jd_main .main_section.second_kill .section_bottom ul li p:nth-of-type(1) {
+  color: #d13743;
+}
+.jd_main .main_section.second_kill .section_bottom ul li p:nth-of-type(2) {
+  color: gray;
+  text-decoration: line-through;
+}
+.jd_main .main_section.second_kill .section_bottom ul li:nth-child(2) a {
+  border-left: 1px solid gray;
+  border-right: 1px solid gray;
+}
+.jd_main .main_section:nth-child(n+2) .section_top {
+  height: 32px;
+  border-bottom: 1px solid gray;
+}
+.jd_main .main_section:nth-child(n+2) .section_top span {
+  line-height: 32px;
+  color: black;
+  margin-left: 15px;
+  position: relative;
+  height: 32px;
+}
+.jd_main .main_section:nth-child(n+2) .section_top span::before {
+  content: '';
+  position: absolute;
+  background-color: #d13743;
+  width: 4px;
+  height: 15px;
+  left: -8px;
+  top: 8.5px;
+}
+.jd_main .main_section:nth-child(n+2) .section_bottom a {
+  width: 50%;
+  display: block;
+}
+.jd_main .main_section:nth-child(n+2) .section_bottom a img {
+  width: 100%;
+  display: block;
+}
+.banner_index {
+  z-index: 998;
+}

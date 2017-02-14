@@ -10,9 +10,7 @@
     <!-- 由于 已经 实现了 base 跟index的合并 我们只需要导入 index.css即可 -->
     <!--<link rel="stylesheet" href="css/base.css" />-->
     <link rel="stylesheet" type="text/css" href="css/index.css" />
-    
-    <!-- 导入 js文件 -->
-    <script src="js/index.js" type="text/javascript" charset="utf-8"></script>
+
   </head>
 
   <body>
@@ -167,15 +165,15 @@
                 <a href="#">
                   <img src="images/detail02.jpg" alt="" />
                 </a>
-                 <p>¥10.00</p>
-                  <p>¥100.00</p>
+                <p>¥10.00</p>
+                <p>¥100.00</p>
               </li>
               <li class="f_l">
                 <a href="#">
                   <img src="images/detail01.jpg" alt="" />
                 </a>
-                  <p>¥10.00</p>
-                  <p>¥100.00</p>
+                <p>¥10.00</p>
+                <p>¥100.00</p>
               </li>
             </ul>
 
@@ -184,40 +182,121 @@
         </div>
         <!-- 除了 秒杀区域的 之外的 区域 -->
         <div class="main_section">
-        	<!-- 顶部 -->
+          <!-- 顶部 -->
           <div class="section_top">
-          	<span class="f_l">京东超市</span>
+            <span class="f_l">京东超市</span>
           </div>
           <!-- 底部 -->
           <div class="section_bottom clearfix">
-          	<!--a[href="#"]*3>img[src="images/cp$.jpg"]-->
-          	<a href="#" class="f_l b_r"><img src="images/cp1.jpg" alt="" /></a>
-          	<a href="#" class="f_r b_b"><img src="images/cp2.jpg" alt="" /></a>
-          	<a href="#" class="f_r"><img src="images/cp3.jpg" alt="" /></a>
+            <!--a[href="#"]*3>img[src="images/cp$.jpg"]-->
+            <a href="#" class="f_l b_r"><img src="images/cp1.jpg" alt="" /></a>
+            <a href="#" class="f_r b_b"><img src="images/cp2.jpg" alt="" /></a>
+            <a href="#" class="f_r"><img src="images/cp3.jpg" alt="" /></a>
           </div>
         </div>
         <div class="main_section">
           <div class="section_top">
-          	<span class="f_l">京东超市</span>
+            <span class="f_l">京东超市</span>
           </div>
           <div class="section_bottom clearfix">
-          	<a href="#" class="f_r b_l"><img src="images/cp4.jpg" alt="" /></a>
-          	<a href="#" class="f_l b_b"><img src="images/cp5.jpg" alt="" /></a>
-          	<a href="#" class="f_l"><img src="images/cp6.jpg" alt="" /></a>
+            <a href="#" class="f_r b_l"><img src="images/cp4.jpg" alt="" /></a>
+            <a href="#" class="f_l b_b"><img src="images/cp5.jpg" alt="" /></a>
+            <a href="#" class="f_l"><img src="images/cp6.jpg" alt="" /></a>
           </div>
         </div>
         <div class="main_section">
           <div class="section_top">
-          	<span class="f_l">京东超市</span>
+            <span class="f_l">京东超市</span>
           </div>
           <div class="section_bottom clearfix">
-          	 <a href="#" class="f_r b_l"><img src="images/cp1.jpg" alt="" /></a>
-          	<a href="#" class="f_l b_b"><img src="images/cp2.jpg" alt="" /></a>
-          	<a href="#" class="f_l"><img src="images/cp3.jpg" alt="" /></a>
+            <a href="#" class="f_r b_l"><img src="images/cp1.jpg" alt="" /></a>
+            <a href="#" class="f_l b_b"><img src="images/cp2.jpg" alt="" /></a>
+            <a href="#" class="f_l"><img src="images/cp3.jpg" alt="" /></a>
           </div>
         </div>
       </div>
     </div>
   </body>
 
-  </html>
+</html>
+
+<!-- 演示 zepto的 使用 -->
+<script src="js/zepto/zepto.js" type="text/javascript" charset="utf-8"></script>
+
+<!-- 如果 想要 为元素 绑定 事件 需要导入 event模块 -->
+<script src="js/zepto/event.js" type="text/javascript" charset="utf-8"></script>
+
+<!-- 当我们发现 touch无法触发
+  	1. 没有切换到 移动端的界面
+  	2. 5.5的谷歌浏览器 需要挑一个 设置
+  		url中 输入 chrome://flags/ 回车-> 谷歌的 设置页面
+  		搜索 指针活动 调整为 已停用 重启 谷歌浏览器 即可
+  	3.依赖于 event模块	
+  -->
+<script src="js/zepto/touch.js" type="text/javascript" charset="utf-8"></script>
+
+<!-- 动画模块 -->
+<script src="js/zepto/fx.js" type="text/javascript" charset="utf-8"></script>
+
+<script type="text/javascript">
+  $(function() {
+    // 步骤1 获取 必须知道的变量
+    // 建议大家 如果要保存 jq的变量 以一个$作为其实
+
+    // 变量:移动的ul  
+    var $moveUL = $('.banner_imgs');
+
+    // 变量:宽度
+    var bodyWidth = $('body').width();
+
+    // 变量:索引
+    var index = 1;
+
+    // 手指滑动
+
+    $moveUL.swipeLeft(function() {
+      // 修改index 
+      index++;
+
+      // 动画 移动 ul
+      $moveUL.animate({
+        transform: 'translateX(' + index * -1 * bodyWidth + 'px)'
+      }, function() {
+
+        // 判断 是否 到了 最后一张
+        if(index >= 9) {
+          index = 1;
+          // 关闭过渡
+          // 瞬间跳到索引为1 的位置
+          $moveUL.css('transform', 'translateX(' + index * bodyWidth * -1 + 'px)')
+        }
+
+        // 修改 索引li标签的 显示 即可
+        $('.banner_index li').removeClass('current').eq(index - 1).addClass('current');
+      })
+    })
+		
+		// 实现 向右滑动
+		$moveUL.swipeRight(function(){
+			// 修改index
+			index--; 
+			// 动画的方式切换 ul的位置
+			$moveUL.animate({transform:'translateX('+index*bodyWidth*-1+'px)'},function(){
+				// index 判断
+				if(index<=0){
+					// 并修正
+					index = 8;
+					
+					// 直接跳转
+					$moveUL.css('transform','translateX('+index*bodyWidth*-1+'px)');
+				}
+				
+				// 修改 索引
+				$('.banner_index li').removeClass('current').eq(index-1).addClass('current');
+			});
+			
+
+		})
+		
+  })
+</script>

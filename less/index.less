@@ -1,0 +1,282 @@
+/* 导入 base.less */
+@import 'base.less';
+/* index.less */
+// 定义变量 为了 方便 使用 京东红
+@jdRed: rgba(209,55,67,1); // 顶部的 通栏
+
+// 为 body 设置一个 最小尺寸
+body{
+    min-width: 320px;
+    //  最大 只能 放大到 这个尺寸
+    // 一般 移动端的 尺寸 要么 不设置 要么 640  750 
+    max-width:640px ;
+    margin: 0 auto;
+} 
+
+.jd_header {
+    height: 40px;
+    background-color: @jdRed;
+    padding: 0 60px;
+    // 设置了 fixed 之后 他相对的就是 设备的尺寸 
+    position: fixed;
+    // 相对的是 设备的 尺寸 为了 始终 贴合 屏幕的 最左边 设置 left为0 
+    left:0px;
+    // 添加定位之后 需要指定 宽度
+    width: 100%;
+    // 单独 设置 min-width 约束 最小宽度
+    min-width:320px ;
+    // 轮播图 设置了 定位之后 就header 遮挡了 
+    z-index: 998;
+    
+    // input标签 自适应
+    input {
+        width: 100%;
+        height: 30px;
+        border-radius: 15px;
+        margin-top: 5px;
+        padding-left: 40px;
+    }
+    a {
+        position: absolute;
+        color: white;
+        line-height: 40px;
+        top: 0;
+    }
+    //登陆
+    .login {
+        right: 10px;
+    }
+    // logo
+    .logo {
+        left: 2px;
+        background-image: url(../images/sprites.png);
+        background-size: 200px 200px;
+        background-position:0 -103px ;
+        width: 60px;
+        height: 36px;
+    }
+    // 设置放大镜 
+    .glass{
+        background-image: url(../images/sprites.png);
+        background-size: 200px 200px;
+        background-position:-60px -109px;
+        width: 20px;
+        height: 20px;
+        position: absolute;
+        top:10px;
+        left:70px;
+    }
+}
+// 轮播图
+.jd_banner {
+    // 让 超出的 ul 不会出现滚动
+    overflow: hidden;
+    position: relative;
+    // 轮播图的 ul 
+    .banner_imgs {
+        //  10倍屏幕宽度
+        width: 1000%;
+        // 默认 移动 一倍宽度
+        transform: translateX(-10%); 
+        // ul标签
+        li {
+            float: left;
+            // 一倍的 屏幕宽度 
+            width: 10%;
+            a {
+                display: block;
+                width: 100%;
+                img {
+                    display: block;
+                    width: 100%;
+                }
+            }
+        }
+    }
+    // 索引的 ul
+    .banner_index {
+        position: absolute;
+        // 使用定位 
+        bottom: 10px;
+        left: 50%;
+        transform: translateX(-50%);
+        li {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            border: 1px solid white;
+            margin: 0 3px;
+            &.current {
+                background-color: white;
+            }
+        }
+    }
+}
+// 导航区域
+.jd_nav {
+    ul {
+        padding-top: 10px;
+        li {
+            float: left;
+            width: 25%;
+            a {
+                display: block;
+                width: 100%;
+                img {
+                    display: block;
+                    margin: 0 auto;
+                    width: 50%;
+                }
+                p {
+                    text-align: center;
+                    color: gray;
+                    font-size: 13px;
+                    margin: 5px 0;
+                }
+            }
+        }
+    }
+}
+// 京东的 主要内容区域
+.jd_main {
+    padding: 10px 5px 0;
+    background-color: #f5f5f5;
+    .main_section {
+        //      height: 100px;
+        // 最起码 有一个高度 支持 被撑大 min-height 
+        min-height: 100px;
+        background-color: white;
+        margin-bottom: 10px;
+        // 设置 秒杀区域的 样式  .main_section.second_kill
+        &.second_kill {
+            .section_top {
+                height: 32px;
+                // 左边的内容 
+                span {
+                    line-height: 32px;
+                    margin-left: 10px;
+                }
+                
+                // 为 闹钟 单独 设置 背景图片
+                .clock{
+                    background-image: url(../images/seckill-icon.png);
+                    background-size: 20px 25px;
+                    background-repeat: no-repeat;
+                    width: 20px;
+                    height: 25px;
+                    margin-top: 3.5px;
+                } 
+                
+                span:nth-child(2) {
+                    color: @jdRed;
+                }
+                ul {
+                    padding-top: 6px;
+                    li {
+                        background-color: black;
+                        color: white;
+                        margin: 0 2px;
+                        width: 15px;
+                        height: 20px;
+                         text-align: center;
+                        line-height: 20px;
+                        font-weight: 700;
+                        font-size: 16px;
+                    }
+                    li:nth-child(3n) {
+                        background-color: white;
+                        color: black;
+                        margin: 0;
+                    }
+                }
+                // 设置 右边的 a标签 
+                a {
+                    line-height: 32px;
+                    color: #ccc;
+                    margin-right: 10px;
+                }
+            }
+            // 底部 区域
+            .section_bottom {
+                ul {
+                    li {
+                        width: 33.333333%;
+                        a {
+                            padding-top: 10px;
+                            width: 100%;
+                            display: block;
+                            img {
+                                display: block;
+                                width: 70%;
+                                margin: 0 auto;
+                            }
+                        }
+                        // 找到 中间的 a标签 左右 设置 border即可 
+                        p {
+                            text-align: center;
+                            margin: 5px 0;
+                        }
+                        p:nth-of-type(1) {
+                            color: @jdRed;
+                        }
+                        p:nth-of-type(2) {
+                            color: gray;
+                            text-decoration: line-through;
+                        }
+                    }
+                    // 找到 中间的 li标签
+                    li:nth-child(2) {
+                        a {
+                            border-left: 1px solid gray;
+                            border-right: 1px solid gray;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    
+    // 除开 秒杀区域之外的 区域 
+    // n从0开始 如果给的是 n+1  1 2 3 4 5 6
+    .main_section:nth-child(n+2){
+        .section_top{
+            height: 32px;
+            border-bottom: 1px solid gray;
+            span{
+                // 需要设置高度 但是 span 是行内元素
+                line-height: 32px;
+                color:black;
+                margin-left: 15px;
+                position: relative;
+                height: 32px;
+                &::before{
+                    content:'';
+                    position: absolute;
+                    background-color: @jdRed;
+                    width: 4px;
+                    height: 15px;
+                    left:-8px;
+                    top:8.5px;
+                }
+            }
+        }
+        
+        // 找到 a标签 以及 img 为其添加样式 
+        .section_bottom{
+            a{ 
+                width: 50%;
+                display: block;
+              img{
+                  width: 100%;
+                  display: block;
+              }  
+            }
+            
+        }
+    }
+}
+
+// 将 索引 ul的 z-index  跳上
+.banner_index{
+    z-index: 998;
+} 
